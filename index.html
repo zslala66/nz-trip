@@ -434,10 +434,10 @@ const TRIP = {
   dates: "2026.11.22 — 12.13",
   dek: "爸爸妈妈第一次去新西兰。北岛住 {Auckland} 奥克兰和 {Rotorua} 罗托鲁瓦，看霍比特屯和地热；南岛先住 {Queenstown} 皇后镇看湖和峡湾，再自驾经库克山、特卡波湖到 {Christchurch} 基督城。帅先到一天接机，最后先送爸妈再走。",
   status: [
-    {t:"签证审批中", s:"wait"},
+    {t:"签证已获批", s:"ok"},
     {t:"航班未订", s:"todo"},
     {t:"住宿未订", s:"todo"},
-    {t:"路线已定", s:"ok"}
+    {t:"路线大致有了，未定", s:"wait"}
   ],
   party: [
     {name:"帅", from:"{New York} 纽约 · JFK", dates:"去：11/22 纽约出发 → 11/24 早上到奥克兰｜回：12/13 离开新西兰"},
@@ -491,7 +491,8 @@ const TRIP = {
     {h:"帅的航班要转机", t:"去程 11/22、回程 12/13 都是周日，没有纽约直飞。尽量订同一家航空联盟的联程票，转机时间留 2 小时以上。"}
   ],
   todos: [
-    {t:"三人新西兰签证获批", now:true},
+    {t:"三人新西兰签证获批", done:true},
+    {t:"确定最终路线", now:true},
     {t:"订帅的往返转机票（11/22 纽约出发；12/13 {Christchurch} 基督城 → {Auckland} 奥克兰 → 美国 → {New York} 纽约 一张票）"},
     {t:"订爸妈国际段（新航开口票，回程从 {Christchurch} 基督城出发）"},
     {t:"订 11/28 {Auckland} 奥克兰 → {Queenstown} 皇后镇"},
@@ -499,7 +500,7 @@ const TRIP = {
     {t:"订南岛租车（{Queenstown Airport} 皇后镇机场取，{Christchurch Airport} 基督城机场还）"},
     {t:"订住宿：{Auckland} 奥克兰 2 晚、{Rotorua} 罗托鲁瓦 2 晚、{Queenstown} 皇后镇 8 晚、{Christchurch} 基督城 7 晚"},
     {t:"预订 {Hobbiton} 霍比特屯、{Milford Sound Cruise} 米尔福德峡湾游船、{Kaikōura Whale Watch} 凯库拉观鲸"},
-    {t:"签证批下来后，确认有效期覆盖到 12/12（爸妈）和 12/13（帅）"},
+    {t:"确认签证有效期覆盖到 12/12（爸妈）和 12/13（帅）"},
     {t:"更新行程单 PDF 为新路线和日期"},
     {t:"买旅行保险，尤其爸妈的医疗保障"}
   ],
