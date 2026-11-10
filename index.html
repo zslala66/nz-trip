@@ -405,7 +405,7 @@ footer{margin-top:clamp(56px,8vw,96px);padding-block:20px 40px;border-top:1px so
   </section>
 
   <section id="flights">
-    <div class="sec-head"><span class="no">v</span><h2>航班</h2><p>时刻来自公开时刻表，订票时以航空公司为准</p></div>
+    <div class="sec-head"><span class="no">v</span><h2>航班</h2><p>所有时间都是当地时间（纽约 / 上海 / 新西兰）；时刻来自公开时刻表，订票时以航空公司为准</p></div>
     <div class="board">
       <div class="board-head"><span>Departures · 出发</span><span id="boardCount"></span></div>
       <div id="flightList"></div>
@@ -440,9 +440,9 @@ const TRIP = {
     {t:"路线已定", s:"ok"}
   ],
   party: [
-    {name:"帅", from:"{New York} 纽约 · JFK", dates:"11/22 出发 · 12/13 离开新西兰"},
-    {name:"爸爸", from:"{Shanghai Pudong} 上海浦东 · PVG", dates:"11/24 出发 · 12/12 离开新西兰"},
-    {name:"妈妈", from:"{Shanghai Pudong} 上海浦东 · PVG", dates:"11/24 出发 · 12/12 离开新西兰"}
+    {name:"帅", from:"{New York} 纽约 · JFK", dates:"去：11/22 纽约出发 → 11/24 早上到奥克兰｜回：12/13 离开新西兰"},
+    {name:"爸爸", from:"{Shanghai Pudong} 上海浦东 · PVG", dates:"去：11/24 上海出发 → 11/25 早上到奥克兰｜回：12/12 离开新西兰"},
+    {name:"妈妈", from:"{Shanghai Pudong} 上海浦东 · PVG", dates:"去：11/24 上海出发 → 11/25 早上到奥克兰｜回：12/12 离开新西兰"}
   ],
   route: [
     {code:"AKL", name:"奥克兰", en:"Auckland", nights:"2晚", how:"自驾 3h"},
@@ -477,13 +477,13 @@ const TRIP = {
     {d:"12/13", w:"周日", us:"飞 {Auckland} 奥克兰，傍晚转机回 {New York} 纽约", p:"早上到 {Shanghai Pudong} 上海浦东", stay:"—"}
   ],
   flights: [
-    {d:"11/22 周日", no:"转机", alt:"待定", route:"JFK → AKL", time:"11/22 出发 → 约 11/24 早上到", who:"帅", st:"未订", note:"周日没有 NZ1 直飞；经 {Los Angeles} 洛杉矶或 {San Francisco} 旧金山转机，全程约 20–24 小时"},
-    {d:"11/24 周二", no:"NZ288", alt:"备选 MU779", route:"PVG → AKL", time:"14:15 → 11/25 06:45", who:"爸爸妈妈", st:"未订", note:"{China Eastern} 东航 MU779 午夜后起飞，票面日期要选 11/25，16:35 到"},
+    {d:"11/22 周日", no:"转机", alt:"待定", route:"JFK → AKL", time:"11/22 纽约出发 → 11/24 约 07:00 奥克兰到", who:"帅", st:"未订", note:"周日没有 NZ1 直飞；经 {Los Angeles} 洛杉矶或 {San Francisco} 旧金山转机，全程约 20–24 小时。选 11/24 早上 06:45 以后落地的，保证爸妈到达时间晚 6–24 小时"},
+    {d:"11/24 周二", no:"NZ288", alt:"备选 MU779", route:"PVG → AKL", time:"11/24 14:15 上海 → 11/25 06:45 奥克兰", who:"爸爸妈妈", st:"未订", note:"比帅晚到约 24 小时（6–24 小时范围的上限）。备选 {China Eastern} 东航 MU779：11/24 00:10 上海起飞（11/23 深夜去机场），11/24 16:35 到，比帅晚约 9.5 小时"},
     {d:"11/28 周六", no:"NZ / JQ", route:"AKL → ZQN", time:"下午班次", who:"三人", st:"未订", note:"每天多班，约 1 小时 55 分；上午先从罗托鲁瓦开回奥克兰，约 3 小时"},
     {d:"12/12 周六", no:"NZ", route:"CHC → AKL", time:"下午班次", who:"爸爸妈妈", st:"未订", note:"约 1 小时 20 分；和国际段订在同一张票"},
-    {d:"12/12 周六", no:"NZ289", alt:"备选 MU780", route:"AKL → PVG", time:"23:55 → 12/13 07:00", who:"爸爸妈妈", st:"未订", note:"{China Eastern} 东航 MU780 约 22:00 起飞"},
+    {d:"12/12 周六", no:"NZ289", alt:"备选 MU780", route:"AKL → PVG", time:"12/12 23:55 奥克兰 → 12/13 07:00 上海", who:"爸爸妈妈", st:"未订", note:"{China Eastern} 东航 MU780 约 22:00 起飞"},
     {d:"12/13 周日", no:"NZ", route:"CHC → AKL", time:"上午或中午班次", who:"帅", st:"未订", note:"约 1 小时 20 分；留足转机时间"},
-    {d:"12/13 周日", no:"转机", alt:"待定", route:"AKL → JFK", time:"12/13 傍晚起飞 → 同日或次日到", who:"帅", st:"未订", note:"周日没有 NZ2 直飞；经美国西海岸转机，和 {Christchurch} 基督城 → {Auckland} 奥克兰 一段订在同一张票"}
+    {d:"12/13 周日", no:"转机", alt:"待定", route:"AKL → JFK", time:"12/13 傍晚奥克兰 → 12/13 纽约到", who:"帅", st:"未订", note:"爸妈前一晚已经走了。周日没有 NZ2 直飞；经美国西海岸转机，和 {Christchurch} 基督城 → {Auckland} 奥克兰 一段订在同一张票"}
   ],
   tips: [
     {h:"国际段订开口票", t:"爸妈：去程 {Shanghai} 上海 → {Auckland} 奥克兰，回程 {Christchurch} 基督城 → {Auckland} 奥克兰 → {Shanghai} 上海。帅的回程也可以从基督城出发。行李直挂，国内段延误由航空公司负责。"},
@@ -504,7 +504,7 @@ const TRIP = {
     {t:"买旅行保险，尤其爸妈的医疗保障"}
   ],
   decisions: [
-    {when:"11/9", what:"日期改为：帅 11/22 出发、12/13 离开新西兰；爸妈 11/25 到、12/12 走", why:"两天都是周日，没有纽约直飞，帅改为转机；各地住几晚不变"},
+    {when:"11/9", what:"日期改为（当地时间）：帅 11/22 纽约出发、11/24 早上到，12/13 离开；爸妈 11/24 上海出发、11/25 早上到，12/12 晚上走", why:"爸妈落地要比帅晚 6–24 小时；走的时候帅先送爸妈。11/22 和 12/13 都是周日，没有纽约直飞，帅改为转机"},
     {when:"11/9", what:"同行改为三人：帅和爸妈", why:"出行人员调整"},
     {when:"10/26", what:"北岛缩短为 4 晚：{Auckland} 奥克兰 2 晚 + {Rotorua} 罗托鲁瓦 2 晚", why:"多出来的时间都放到南岛；霍比特屯放在去罗托鲁瓦的路上"},
     {when:"10/26", what:"南岛先 {Queenstown} 皇后镇 8 晚，再 {Christchurch} 基督城 7 晚", why:"两地之间自驾，路上看库克山和特卡波湖"},
