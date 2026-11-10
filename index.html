@@ -77,6 +77,7 @@ section{padding-block:clamp(44px,7vw,80px) 0}
 .person .name{font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.2}
 .person .from{font-family:var(--f-mono);font-size:12px;color:var(--lake);margin-top:6px}
 .person .dates{font-size:14px;color:var(--ink-soft)}
+.aim{display:inline-block;margin-right:6px;padding:0 6px;border:1px solid var(--kowhai);border-radius:3px;font:500 10px/16px var(--f-en);letter-spacing:.04em;color:var(--kowhai);vertical-align:1px;white-space:nowrap}
 
 /* route */
 .route{overflow-x:auto}
@@ -305,7 +306,7 @@ footer{margin-top:clamp(56px,8vw,96px);padding-block:20px 40px;border-top:1px so
   </div>
 
   <section id="party">
-    <div class="sec-head"><span class="no">i</span><h2>同行三人</h2><p>两地出发，在奥克兰会合</p></div>
+    <div class="sec-head"><span class="no">i</span><h2>同行三人</h2><p>两地出发，在奥克兰会合；日期都是计划（aiming），还没订票</p></div>
     <div class="party" id="partyList"></div>
   </section>
 
@@ -399,13 +400,13 @@ footer{margin-top:clamp(56px,8vw,96px);padding-block:20px 40px;border-top:1px so
   </section>
 
   <section id="days">
-    <div class="sec-head"><span class="no">iv</span><h2>逐日行程</h2><p>金色底标出接机和送机的日子</p></div>
+    <div class="sec-head"><span class="no">iv</span><h2>逐日行程</h2><p>计划日程（aiming），订票后可能调整；金色底标出接机和送机的日子</p></div>
     <div class="days-head label"><span>日期</span><span>帅</span><span>爸爸妈妈</span><span>住宿</span></div>
     <div class="days" id="dayList"></div>
   </section>
 
   <section id="flights">
-    <div class="sec-head"><span class="no">v</span><h2>航班</h2><p>所有时间都是当地时间（纽约 / 上海 / 新西兰）；时刻来自公开时刻表，订票时以航空公司为准</p></div>
+    <div class="sec-head"><span class="no">v</span><h2>航班</h2><p>所有时间都是计划时间（aiming），按当地时间（纽约 / 上海 / 新西兰）；还没订，订票时以航空公司为准</p></div>
     <div class="board">
       <div class="board-head"><span>Departures · 出发</span><span id="boardCount"></span></div>
       <div id="flightList"></div>
@@ -527,7 +528,7 @@ $("issueDates").textContent = TRIP.dates;
 $("dek").innerHTML = fmt(TRIP.dek);
 $("status").innerHTML = TRIP.status.map(s => `<span class="pill ${s.s}">${esc(s.t)}</span>`).join("");
 $("partyList").innerHTML = TRIP.party.map(p =>
-  `<div class="person"><div class="name">${esc(p.name)}</div><div class="from">${fmt(p.from)}</div><div class="dates">${esc(p.dates)}</div></div>`).join("");
+  `<div class="person"><div class="name">${esc(p.name)}</div><div class="from">${fmt(p.from)}</div><div class="dates"><span class="aim">计划 Aiming</span>${esc(p.dates)}</div></div>`).join("");
 
 
 
@@ -554,7 +555,7 @@ $("flightList").innerHTML = TRIP.flights.map(f => `
     <div class="d time">${esc(f.d)}</div>
     <div class="no">${esc(f.no)}${f.alt?`<span class="alt">${esc(f.alt)}</span>`:""}</div>
     <div class="route-code">${esc(f.route)}</div>
-    <div class="time">${esc(f.time)}</div>
+    <div class="time"><span class="aim">计划 Aiming</span>${esc(f.time)}</div>
     <div class="st${f.st==="已订"?" ok":""}">${esc(f.st)}</div>
     <div class="note"><span class="who">${esc(f.who)}</span> · ${fmt(f.note)}</div>
   </div>`).join("");
