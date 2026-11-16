@@ -446,14 +446,14 @@ footer{margin-top:clamp(56px,8vw,96px);padding-block:20px 40px;border-top:1px so
 <script>
 /* ============ 内容：所有更新只改这里 ============ */
 const TRIP = {
-  updated: "2026-11-14",
+  updated: "2026-11-15",
   dates: "2026.11.21 — 12.12",
   dek: "爸爸妈妈第一次去新西兰。帅先到 {Auckland} 奥克兰住一晚，第二天接爸妈，一起在奥克兰休息两晚；然后飞 {Queenstown} 皇后镇住 7 晚，再自驾经 {Wānaka} 瓦纳卡、{Aoraki / Mt Cook} 库克山、{Lake Tekapo} 特卡波湖到 {Christchurch} 基督城，最后飞回奥克兰，先送爸妈，第二天帅再走。",
   status: [
     {t:"签证已获批", s:"ok"},
     {t:"国际机票已订", s:"ok"},
-    {t:"皇后镇住宿已订", s:"ok"},
-    {t:"其他住宿未订", s:"todo"},
+    {t:"奥克兰、皇后镇住宿已订", s:"ok"},
+    {t:"南岛自驾住宿未订", s:"todo"},
     {t:"南岛自驾路线（草案）", s:"wait"}
   ],
   party: [
@@ -471,7 +471,7 @@ const TRIP = {
     {code:"AKL", name:"奥克兰", en:"Auckland", nights:"1晚", how:""}
   ],
   chapters: [
-    {island:"North Island 北岛", title:"奥克兰", en:"Auckland", nights:"11.23 — 11.26 · 帅 3 晚，爸妈 2 晚",
+    {island:"North Island 北岛", title:"奥克兰", en:"Auckland", nights:"11.23 — 11.26 · 帅 3 晚，爸妈 2 晚 · 住宿已订",
      lede:"帅先到一天，取车、买电话卡、把住的地方安顿好。第二天早上接爸妈，之后两天都以休息、倒时差为主，在市区和海边轻松走走，不安排远行。",
      sights:[["Sky Tower","天空塔","市中心"],["Viaduct Harbour","高架桥港 · 海边散步","市中心"],["Mt Eden","伊甸山 · 火山口","可开车到山顶附近"],["Devonport","德文波特 · 渡轮十几分钟","半天"],["Muriwai Gannet Colony","穆里怀塘鹅聚居地","约 45 分钟"]]},
     {island:"South Island 南岛", title:"皇后镇", en:"Queenstown", nights:"11.26 — 12.03 · 7 晚 · 住宿已订",
@@ -483,10 +483,10 @@ const TRIP = {
   ],
   days: [
     {d:"11/21", w:"周六", us:"晚上 19:25 乘 NZ1 从 {New York} 纽约起飞", p:"—", stay:"飞机上"},
-    {d:"11/23", w:"周一", us:"早上 07:30 到 {Auckland} 奥克兰；取车、买电话卡、安顿好，自己住一晚", p:"下午 14:15 乘 NZ288 从 {Shanghai Pudong} 上海浦东起飞", stay:"{Auckland} 奥克兰"},
+    {d:"11/23", w:"周一", us:"早上 07:30 到 {Auckland} 奥克兰；取车、买电话卡；15:00 以后入住市中心公寓（已订），自己住一晚", p:"下午 14:15 乘 NZ288 从 {Shanghai Pudong} 上海浦东起飞", stay:"{Auckland} 奥克兰"},
     {d:"11/24", w:"周二", us:"早上去机场接爸妈，回去休息倒时差，下午在市区轻松转转", p:"06:45 到 {Auckland} 奥克兰", stay:"{Auckland} 奥克兰", key:true},
     {d:"11/25", w:"周三", us:"继续休息；在奥克兰市区或海边走走，比如 {Sky Tower} 天空塔、{Devonport} 德文波特", p:"同行", stay:"{Auckland} 奥克兰"},
-    {d:"11/26", w:"周四", us:"飞 {Queenstown} 皇后镇；15:00 以后入住湖景房子（已订）", p:"同行", stay:"{Queenstown} 皇后镇"},
+    {d:"11/26", w:"周四", us:"10:00 前退房，还车，飞 {Queenstown} 皇后镇；15:00 以后入住湖景房子（已订）", p:"同行", stay:"{Queenstown} 皇后镇"},
     {d:"11/27–12/2", w:"", us:"以皇后镇为据点：{Milford Sound} 米尔福德峡湾、{Arrowtown} 箭镇、{Glenorchy} 格莱诺奇", p:"同行", stay:"{Queenstown} 皇后镇"},
     {d:"12/3", w:"周四", us:"10:00 前退房；翻过 {Crown Range} 皇冠山路到 {Wānaka} 瓦纳卡，约 1 小时；路上停 {Cardrona} 卡德罗纳", p:"同行", stay:"{Wānaka} 瓦纳卡"},
     {d:"12/4", w:"周五", us:"{That Wānaka Tree} 湖中孤树、湖边走走", p:"同行", stay:"{Wānaka} 瓦纳卡"},
@@ -520,12 +520,14 @@ const TRIP = {
     {t:"订奥克兰租车（{Auckland Airport} 奥克兰机场取还，11/23–11/26）"},
     {t:"订南岛租车（{Queenstown Airport} 皇后镇机场取，{Christchurch Airport} 基督城机场还，11/26–12/11）"},
     {t:"订 {Queenstown} 皇后镇 7 晚：湖景独栋，11/26 15:00 入住 → 12/3 10:00 退房", done:true},
-    {t:"订其他住宿：{Auckland} 奥克兰 3 晚、{Wānaka} 瓦纳卡 2 晚、{Mt Cook Village} 库克山 2 晚、{Lake Tekapo} 特卡波湖 2 晚、{Christchurch} 基督城 2 晚、{Auckland} 奥克兰 1 晚"},
+    {t:"订 {Auckland} 奥克兰 3 晚：市中心公寓，11/23 15:00 入住 → 11/26 10:00 退房", done:true},
+    {t:"订其他住宿：{Wānaka} 瓦纳卡 2 晚、{Mt Cook Village} 库克山 2 晚、{Lake Tekapo} 特卡波湖 2 晚、{Christchurch} 基督城 2 晚、{Auckland} 奥克兰 1 晚"},
     {t:"预订 {Milford Sound Cruise} 米尔福德峡湾游船、特卡波湖星空团"},
     {t:"更新行程单 PDF 为新路线和日期"},
     {t:"买旅行保险，尤其爸妈的医疗保障"}
   ],
   decisions: [
+    {when:"11/15", what:"订好奥克兰 3 晚：市中心公寓，11/23 15:00 入住，11/26 10:00 退房", why:"在市中心，接机后休息、逛海港和天空塔都方便"},
     {when:"11/14", what:"订好皇后镇 7 晚：山坡上的湖景独栋，11/26 15:00 入住，12/3 10:00 退房", why:"三人住一整套房子，阳台正对瓦卡蒂普湖和卓越山"},
     {when:"11/10", what:"国际机票已订：帅 NZ1 11/21 → NZ2 12/12；爸妈 NZ288 11/23 → NZ289 12/11", why:"全部直飞；爸妈比帅晚到约 23 小时，走的时候帅先送爸妈"},
     {when:"11/10", what:"奥克兰：帅先住 1 晚，爸妈到了再一起住 2 晚休息；第 4 天 11/26 飞皇后镇住 7 晚", why:"爸妈坐完夜班飞机先休息，不急着出去玩"},
